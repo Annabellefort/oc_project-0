@@ -51,6 +51,11 @@ public class Product {
 		return quantity;
 	}
 
+	/**
+	 * Set the quantity of the product
+	 * the quantity can t be negative, otherwise it will be set to 0
+	 * @param quantity
+	 */
 	public void setQuantity(int quantity) {
 		if (quantity < 0) {
 			this.quantity = 0;
@@ -64,18 +69,30 @@ public class Product {
 		return price;
 	}
 
+	/**
+	 * Set the price of the product
+	 * the price can t be negative, otherwise it will be set to 0
+	 * the price can t be more than 1000, otherwise it will be set to 1000
+	 * @param price of product
+	 */
 	public void setPrice(double price) {
+		// Price should not be negative
 		if (price < 0) {
 			this.price = 0;
 		}
+		// Price should not be more than 1000
 		else if (price > 1000) {
 			this.price = 1000;
 		}
 		else {
-			this.price = price;	
+			this.price = price;
 		}
 	}
 
+	/**
+	 * Return the total amount of the product
+	 * @return total amount of the product
+	 */
 	public double getInventoryPrice() {
 		return quantity*price;
 	}
