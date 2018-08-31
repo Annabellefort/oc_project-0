@@ -52,7 +52,12 @@ public class Product {
 	}
 
 	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+		if (quantity < 0) {
+			this.quantity = 0;
+		}
+		else {
+			this.quantity = quantity;
+		}
 	}
 
 	public double getPrice() {
