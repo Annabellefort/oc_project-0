@@ -29,10 +29,18 @@ public class ProductController {
 		model.addAttribute("prod", productService.product(id));
 		return "product";
 	}
-	
+
+	/**
+	 * Return the total amount of the inventory
+	 * @return the total amount
+	 */
 	private double calculateTotalInventoryAmount() {
-		// TODO fix calculation
-		 return 123456.78;
+		double result = 0;
+		// go through the product list in order to retrieve the inventory price for calculate the total amount of the inventory
+		for(int i = 0; i < productService.products().size(); i++){
+			result = result + productService.products().get(i).getInventoryPrice();
+		}
+		return result;
 		
 	}
 }
